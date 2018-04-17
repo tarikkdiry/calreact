@@ -1,0 +1,14 @@
+%h1 React Calendar
+
+%h2 Appointments
+
+%h3 Make a new appointment
+
+= form_for @appointment, remote: true do |f|
+  = f.text_field :title, placeholder: 'Appointment Title'
+  = f.text_field :appt_time, placeholder: 'Date and time'
+  = f.submit 'Make appointment'
+
+- @appointments.each do |a|
+  %h3 = a.title
+  %p = a.appt_time
